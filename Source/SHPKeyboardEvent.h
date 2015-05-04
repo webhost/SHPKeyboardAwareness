@@ -41,4 +41,10 @@ typedef NS_ENUM(NSUInteger, SHPKeyboardEventType) {
 /// Property where user can save original content offset to be applied once keyboard hides. Will be preserved between show/hide events.
 @property (nonatomic, assign) CGFloat originalOffset;
 
+/// Convenience method for animating with pace of the keyboard. Should be called when the keyboard event is fired.
+- (void) animateWithKeyboard:(void (^)(void))animations;
+
+/// Convenience method for animating with pace of the keyboard with optional completion block. Should be called when the keyboard event is fired.
+- (void) animateWithKeyboard:(void (^)(void))animations completion: (void (^)(BOOL finished))completion;
+
 @end

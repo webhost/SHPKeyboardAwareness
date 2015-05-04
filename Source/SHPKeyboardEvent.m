@@ -43,4 +43,12 @@
     _keyboardEventType = keyboardEventType;
 }
 
+- (void) animateWithKeyboard:(void (^)(void))animations {
+    [self animateWithKeyboard:animations completion:nil];
+}
+
+- (void) animateWithKeyboard:(void (^)(void))animations completion: (void (^)(BOOL finished))completion {
+    [UIView animateWithDuration:self.keyboardAnimationDuration delay:0 options:self.keyboardAnimationOptionCurve animations:animations completion:nil];
+}
+
 @end
