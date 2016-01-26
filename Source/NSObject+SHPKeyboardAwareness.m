@@ -76,8 +76,7 @@ CGRect shp_normalizedFrame(CGRect frame, UIWindow *window) {
         combinedShowSignal = [RACSignal combineLatest:@[viewSignal,keyboardSignal]];
     }
     else {
-        RACSignal *viewNotifications = [RACSignal merge:@[[self shpka_rac_notifyUntilDealloc:UITextFieldTextDidBeginEditingNotification],
-                                                          [self shpka_rac_notifyUntilDealloc:UITextViewTextDidBeginEditingNotification]]];
+        RACSignal *viewNotifications = [self shpka_rac_notifyUntilDealloc:UIKeyboardWillShowNotification];
 
         viewSignal = [[viewNotifications map:^id(NSNotification *notification) {
             return notification.object;
