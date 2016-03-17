@@ -80,7 +80,7 @@ CGRect shp_normalizedFrame(CGRect frame, UIWindow *window) {
             [self shpka_rac_notifyUntilDealloc:UITextFieldTextDidBeginEditingNotification],
             [self shpka_rac_notifyUntilDealloc:UITextViewTextDidBeginEditingNotification],
             // Enable trigger when keyboard changes input mode, since that may change its size
-            [self shpka_rac_notifyUntilDealloc:UITextInputCurrentInputModeDidChangeNotification]
+            [[self shpka_rac_notifyUntilDealloc:UITextInputCurrentInputModeDidChangeNotification] skip:1]
         ]];
 
         // UITextInputCurrentInputModeDidChangeNotification's notification does
